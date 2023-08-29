@@ -1,5 +1,5 @@
 export async function getCookie(){
-    const res = await fetch('http://localhost:3000/api/GetCookie')
+    const res = await fetch('/api/GetCookie')
 
     if(res.status === 200){
         return  res.json()
