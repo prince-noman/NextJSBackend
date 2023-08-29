@@ -1,0 +1,12 @@
+import {NextResponse} from "next/server";
+
+export async function GET(req, res){
+    return NextResponse.json(
+        {status: true, msg: "Request Completed"},
+        {
+            status: 201,
+            headers:{'authorization': '123-XYZ'}
+        }
+    )
+}
+
