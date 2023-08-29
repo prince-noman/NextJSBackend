@@ -1,12 +1,13 @@
 import {NextResponse} from "next/server";
+import {headers} from "next/headers";
 
 export async function GET(req, res){
+
+    const list = headers();
+    const Bearer = list.get('Bearer')
+
     return NextResponse.json(
-        {status: true, msg: "Request Completed"},
-        {
-            status: 201,
-            headers:{'authorization': '123-XYZ'}
-        }
+        {Bearer: Bearer}
     )
 }
 

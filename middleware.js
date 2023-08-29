@@ -11,22 +11,21 @@ export function middleware(req,res) {
 
 
     //Modifying the Headers
-    if(req.nextUrl.pathname.startsWith("/api/products")){
-      const reqHeader = new Headers(req.headers)
-        const authorization  = reqHeader.get('authorization')
-        console.log(authorization)
-        if(authorization == '123-XYZ'){
-           NextResponse.json(
-                {status: true, msg: "Request Completed"},
-                {
-                    status: 201,
-                    headers:{'Bearer': '123-XYZ'}
-                }
-            )
-            return NextResponse.next()
-        }
-        else{
-            return NextResponse.json({status:"failed"})
+    if(req.nextUrl.pathname.startsWith("/api/products")) {
+
+        const requestHeaders = new Headers(req.headers)
+        const authorization = requestHeaders.get('authorization')
+
+        if(authorization==='123-XYZ'){
+
+            requestHeaders.set('Bearer', '123-ABC')
+
+            return NextResponse.next({
+                request:{headers:requestHeaders}
+            })
+
+        }else {
+            return NextResponse.json({msg: 'Failed'})
         }
     }
 
