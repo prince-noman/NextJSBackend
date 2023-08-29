@@ -22,7 +22,7 @@ export default function Home() {
 
             }
         )()
-    },[name, value])
+    },[])
 
     const handleClick = ()=>{
         setIsActive(!isActive);
