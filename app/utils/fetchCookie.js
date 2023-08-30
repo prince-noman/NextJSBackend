@@ -1,6 +1,8 @@
 export async function getCookie(){
-    const res = await fetch('/api/getCookie')
-const data =  await res.json()
+    const res = await fetch('/api/getCookie',{
+        method: 'GET'
+    })
+    const data =  await res.json()
     // console.log(data)
     if(res.status === 200){
         return  data
@@ -8,13 +10,3 @@ const data =  await res.json()
         return []
     }
 }
-
-// export default async function getAllPosts(){
-//     const res = await fetch(BaseURL+"/post-newest")
-//     if(res.status === 200){
-//         return res.json();
-//     }else{
-//         return []
-//     }
-//
-// }
