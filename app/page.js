@@ -34,7 +34,7 @@ export default function Home() {
     const handleClick = async ()=>{
         setIsActive(!isActive);
         const cookie =  await getCookie()
-
+        console.log(cookie)
         if(cookie.cookieData !== undefined){
             setName(cookie['cookieData']['name'])
             setValue(cookie['cookieData']['value'])
