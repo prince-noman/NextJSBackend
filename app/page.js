@@ -10,20 +10,20 @@ export default function Home() {
     const [value, setValue] = useState('')
     const [isActive, setIsActive] = useState(false);
 
-    useEffect(()=>{
-        (
-             ()=>{
-                const cookie =  getCookie()
-                console.log(cookie)
-                if(cookie.theme !== undefined){
-                    setName(cookie['theme']['name'])
-                    setValue(cookie['theme']['value'])
-                }
-
-
-            }
-        )()
-    },[])
+    // useEffect(()=>{
+    //     (
+    //          ()=>{
+    //             const cookie =  getCookie()
+    //             console.log(cookie)
+    //             if(cookie.theme !== undefined){
+    //                 setName(cookie['theme']['name'])
+    //                 setValue(cookie['theme']['value'])
+    //             }
+    //
+    //
+    //         }
+    //     )()
+    // },[])
 
 
 
@@ -31,8 +31,14 @@ export default function Home() {
         return setCookie();
     }
 
-    const handleClick = ()=>{
+    const handleClick = async ()=>{
         setIsActive(!isActive);
+        const cookie =  await getCookie()
+        console.log(cookie)
+        if(cookie.theme !== undefined){
+            setName(cookie['theme']['name'])
+            setValue(cookie['theme']['value'])
+        }
     }
 
 
