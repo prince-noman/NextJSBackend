@@ -15,15 +15,16 @@ export default function Home() {
             async ()=>{
                 const cookie = await getCookie()
                 if(cookie.theme !== undefined){
-                    const {name, value} = cookie.theme
-                    setName(name)
-                    setValue(value)
+                    // console.log(cookie['theme']['name'])
+                    // const {name, value} = cookie.theme
+                    setName(cookie['theme']['name'])
+                    setValue(cookie['theme']['value'])
                 }
 
 
             }
         )()
-    },[name, value])
+    },[])
 
 
 
@@ -44,7 +45,7 @@ export default function Home() {
           <button className={'bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded'} onClick={handleCookie}>Set Cookie</button>
           <button className={'bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded'} onClick={handleClick}>Show Cookie</button>
 
-          <p className={isActive ? 'show' : 'hide'}>{name + ': ' + value}</p>
+          <p className={isActive ? 'show' : 'hide'}>{`${name} : ${value}`}</p>
       </div>
     </main>
   )
