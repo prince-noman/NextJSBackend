@@ -14,6 +14,7 @@ export default function Home() {
         (
             async ()=>{
                 const cookie = await getCookie()
+                console.log(cookie)
                 if(cookie.theme !== undefined){
                     console.log(cookie['theme']['name'])
                     console.log(cookie['theme']['value'])
