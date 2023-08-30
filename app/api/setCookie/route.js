@@ -3,7 +3,7 @@
 //POST
 import {NextResponse} from "next/server";
 
-export async function GET(req, res){
+export async function POST(req, res){
         return NextResponse.json(
             {status: true, msg: "Request Completed"},
             {
