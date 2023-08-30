@@ -8,7 +8,7 @@ export async function GET(req, res){
             {status: true, msg: "Request Completed"},
             {
                 status: 201,
-                headers:{'Set-Cookie' : 'theme = light'}
+                headers:{'Set-Cookie': `theme=dark; Path=/;`}
             }
         )
 }
