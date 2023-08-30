@@ -14,27 +14,27 @@ export default function Home() {
         (
             async ()=>{
                 const cookie = await getCookie()
-                // if(cookie.theme !== undefined){
+                if(cookie.theme !== undefined){
                     const {name, value} = cookie.theme
                     setName(name)
                     setValue(value)
-                // }
+                }
 
 
             }
         )()
-    },[])
+    },[name, value])
 
-    const handleClick = ()=>{
-        setIsActive(!isActive);
-    }
+
 
     const handleCookie = () =>{
         return setCookie();
     }
 
-    // console.log(cookie)
-    // const {name, value} = cookie.theme
+    const handleClick = ()=>{
+        setIsActive(!isActive);
+    }
+
 
   return (
     <main>
