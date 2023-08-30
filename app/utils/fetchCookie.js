@@ -1,8 +1,9 @@
 export async function getCookie(){
     const res = await fetch('/api/GetCookie')
-
+const data =  await res.json()
+    // console.log(data)
     if(res.status === 200){
-        return  res.json()
+        return  data
     }else{
         return []
     }
