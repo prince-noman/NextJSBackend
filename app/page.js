@@ -9,15 +9,16 @@ export default function Home() {
     const [name, setName] = useState('')
     const [value, setValue] = useState('')
     const [isActive, setIsActive] = useState(false);
+
     useEffect(()=>{
         (
             async ()=>{
                 const cookie = await getCookie()
-                if(cookie.theme !== undefined){
+                // if(cookie.theme !== undefined){
                     const {name, value} = cookie.theme
                     setName(name)
                     setValue(value)
-                }
+                // }
 
 
             }
