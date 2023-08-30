@@ -8,6 +8,7 @@ export default function Home() {
 
     const [name, setName] = useState('')
     const [value, setValue] = useState('')
+    const [cookie, myCookie] =  useState('')
     const [isActive, setIsActive] = useState(false);
 
     // useEffect(()=>{
@@ -33,11 +34,14 @@ export default function Home() {
 
     const handleClick = async ()=>{
         setIsActive(!isActive);
-        const cookie =  await getCookie()
+        const {cookies} =  await getCookie()
+        myCookie(cookies)
         // console.log(cookie)
-        if(cookie.cookieData !== undefined){
-            setName(cookie['cookieData']['name'])
-            setValue(cookie['cookieData']['value'])
+
+        // console.log(cookie)
+        if(cookie !== undefined){
+            const name = setName(cookie.name)
+            const value =setValue(cookie.value)
         }
     }
 
@@ -50,7 +54,7 @@ export default function Home() {
           <button className={'bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded'} onClick={handleCookie}>Set Cookie</button>
           <button className={'bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded'} onClick={handleClick}>Show Cookie</button>
 
-          <p className={isActive ? 'show' : 'hide'}>{`${name} : ${value}`}</p>
+          <p className={isActive ? 'show' : 'hide'}>{ name +' :'+ value}</p>
       </div>
     </main>
   )

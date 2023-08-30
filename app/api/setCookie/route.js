@@ -1,6 +1,6 @@
 
 
-//POST
+//GET
 import {NextResponse} from "next/server";
 
 export async function GET(req, res){
@@ -8,7 +8,7 @@ export async function GET(req, res){
             {status: true, msg: "Request Completed"},
             {
                 status: 201,
-                headers:{'Set-Cookie': `theme=dark; Path=/;`}
+                headers:{'Set-Cookie': `theme=light; Path=/;`}
             }
         )
 }
