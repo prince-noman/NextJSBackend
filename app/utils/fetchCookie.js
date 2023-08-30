@@ -3,7 +3,7 @@ export async function getCookie(){
         method: 'GET'
     })
     const data =  await res.json()
-
+    console.log(data)
     if(res.status === 200){
         return  data
     }else{
