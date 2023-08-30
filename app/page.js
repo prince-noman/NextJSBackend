@@ -13,6 +13,7 @@ export default function Home() {
     useEffect(()=>{
         (
             async ()=>{
+                await setCookie();
                 const cookie = await getCookie()
                 console.log(cookie)
                 if(cookie.theme !== undefined){
