@@ -12,8 +12,8 @@ export default function Home() {
 
     useEffect(()=>{
         (
-            async ()=>{
-                const cookie = await getCookie()
+             ()=>{
+                const cookie =  getCookie()
                 console.log(cookie)
                 if(cookie.theme !== undefined){
                     setName(cookie['theme']['name'])
